@@ -48,7 +48,7 @@
 
             </div>
             <div class="col-md-12 order-md-last pr-md-5">
-              <form action="{{ route('register') }}" method="post">
+              <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')
                 <div class="form-group">
@@ -83,10 +83,18 @@
                   <input type="number" class="form-control" placeholder="Your Phone Number" name="phone_number">
                 </div>
 
+                @if($errors->has('phone_number'))
+                  <p class="text-danger">{{ $errors->first('phone_number') }}</p>
+                @endif
+
                 <div class="form-group">
                   <textarea id="" cols="30" rows="7" class="form-control"
-                    placeholder="Write a brief bio about yourself" name="about_me"></textarea>
+                    placeholder="Write a brief bio about yourself" name="bio"></textarea>
                 </div>
+
+                @if($errors->has('bio'))
+                  <p class="text-danger">{{ $errors->first('bio') }}</p>
+                @endif
 
                 <div class="form-group">
                   <div class="col-md-12 m-0">
@@ -98,6 +106,7 @@
                   <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
                 </div>
               </form>
+
 
             </div>
 

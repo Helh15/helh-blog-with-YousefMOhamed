@@ -43,17 +43,35 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users|email',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:8|max:16',
+            'phone_number' => 'required|min:10',
+            'bio' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,gif'
+
         ]);
 
-        User::create([
+        if ($request->hasfile('image') && $request->file('image')->isValid() ) {
+           $image= $request->file('image')->store('images','public'); 
+        }
+
+        if (empty($image)) {
+            User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => \Hash::make($request->password),
             'phone_number' => $request->phone_number,
-            'about_me'  => $request->about_me,  
-            'image' => $request->image,
+            'about_me'  => $request->bio,
         ]);
+        }else {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => \Hash::make($request->password),
+                'phone_number' => $request->phone_number,
+                'about_me'  => $request->bio,  
+                'image' => $image,
+            ]);
+        }
 
         if (\Auth::attempt($request->only('email','password'))) {
             return redirect('home');

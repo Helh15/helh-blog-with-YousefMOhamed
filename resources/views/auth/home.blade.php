@@ -38,12 +38,12 @@
 				<div class="overlay"></div>
 				<div class="js-fullheight d-flex justify-content-center align-items-center">
 					<div class="col-md-8 text text-center">
-						<div class="img mb-4" style="background-image: url(images/author.jpg);"></div>
+						<div class="img mb-4"><img src="{{asset('storage/' . Auth::user()->image )}}" onerror="this.onerror=null;this.src='images/default_user_image.png';" class="card-img-top" width="100" style="border-radius: 50%;"></div>
+
 						<div class="desc">
-							
 							<h2 class="subheading">Hello I'm</h2>
-							<h1 class="mb-4">Elen Henderson</h1>
-							<p class="mb-4">I am A Blogger Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+							<h1 class="mb-4">{{ Auth::user()->name }}</h1>
+							<p class="mb-4">{{ Auth::user()->about_me }}</p>
 							<p><a href="#" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
 						</div>
 					</div>
