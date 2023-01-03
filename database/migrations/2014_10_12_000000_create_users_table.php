@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
 
             $table->string('phone_number');
-            $table->string('image')->nullable();;
+            $table->string('image')->nullable();
             $table->integer('pin_code')->nullable();
             $table->string('account_status')->default('active');
             $table->string('about_me');

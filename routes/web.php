@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ViewsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::group(['middleware'=>'guest'],function(){
 Route::group(['middleware'=>'auth'],function(){
         Route::get('home',[AuthController::class,'home'])->name('home');
         Route::get('logout',[AuthController::class,'logout'])->name('logout');
+        Route::post('add_new_article',[UserController::class,'add_new_article'])->name('add_new_article');
+
 });
 
 
@@ -38,5 +41,8 @@ Route::get('travel',[ViewsController::class,'travel'])->name('travel');
 Route::get('fashion',[ViewsController::class,'fashion'])->name('fashion');
 Route::get('about',[ViewsController::class,'about'])->name('about');
 Route::get('contact',[ViewsController::class,'contact'])->name('contact');
+Route::get('readmore/{id}', [ViewsController::class, 'readmore'])->name('readmore');
+Route::get('categoryindex/{id}', [ViewsController::class, 'categoryindex'])->name('categoryindex');
+Route::get('aboutauther/{id}', [ViewsController::class, 'aboutauther'])->name('aboutauther');
 
 

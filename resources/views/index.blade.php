@@ -48,7 +48,7 @@
 							<p class="mb-4">I am A Blogger Far far away, behind the word mountains, far from the countries Vokalia and
 								Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
 								Semantics, a large language ocean.</p>
-							<p><a href="#" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
+							<p><a href="about" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
 						</div>
 					</div>
 				</div>
@@ -63,6 +63,9 @@
 						</div>
 					</div>
 					<div class="row">
+
+					@include('layouts.articles')
+
 						<div class="col-md-4">
 							<div class="blog-entry ftco-animate">
 								<a href="#" class="img img-2" style="background-image: url(images/image_1.jpg);"></a>
@@ -445,10 +448,8 @@
 							<div class="ftco-footer-widget mb-4 ml-md-4">
 								<h2 class="ftco-heading-2">Category</h2>
 								<ul class="list-unstyled categories">
-									<li><a href="#">Photography <span>(6)</span></a></li>
-									<li><a href="#">Fashion <span>(8)</span></a></li>
-									<li><a href="#">Technology <span>(2)</span></a></li>
-									<li><a href="#">Travel <span>(2)</span></a></li>
+								@include('layouts.categorieslist')
+
 								</ul>
 							</div>
 						</div>

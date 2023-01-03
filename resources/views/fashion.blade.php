@@ -31,23 +31,12 @@
 
 	<div id="colorlib-page">
 		
-@include('layouts.navigation')
+		@include('layouts.navigation')
 		
 		<div id="colorlib-main">
-			<div class="hero-wrap js-fullheight" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-				<div class="overlay"></div>
-				<div class="js-fullheight d-flex justify-content-center align-items-center">
-					<div class="col-md-8 text text-center">
-						<div class="img mb-4" style="background-image: url(images/author.jpg);"></div>
-						<div class="desc">
-							<h2 class="subheading">Hello I'm</h2>
-							<h1 class="mb-4">Elen Henderson</h1>
-							<p class="mb-4">I am A Blogger Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p><a href="#" class="btn-custom">More About Me <span class="ion-ios-arrow-forward"></span></a></p>
-						</div>
-					</div>
-				</div>
-			</div>
+			
+		@include('layouts.subheading')
+
 			<section class="ftco-section">
 	    	<div class="container">
 	    		<div class="row">
@@ -415,11 +404,7 @@
 	            <div class="sidebar-box ftco-animate">
 	            	<h3 class="sidebar-heading">Categories</h3>
 	              <ul class="categories">
-	                <li><a href="#">Fashion <span>(6)</span></a></li>
-	                <li><a href="#">Technology <span>(8)</span></a></li>
-	                <li><a href="#">Travel <span>(2)</span></a></li>
-	                <li><a href="#">Food <span>(2)</span></a></li>
-	                <li><a href="#">Photography <span>(7)</span></a></li>
+				  @include('layouts.categorieslist')
 	              </ul>
 	            </div>
 
@@ -514,10 +499,7 @@
 	            <div class="ftco-footer-widget mb-4 ml-md-4">
 	              <h2 class="ftco-heading-2">Category</h2>
 	              <ul class="list-unstyled categories">
-	                <li><a href="#">Photography <span>(6)</span></a></li>
-	                <li><a href="#">Fashion <span>(8)</span></a></li>
-	                <li><a href="#">Technology <span>(2)</span></a></li>
-	                <li><a href="#">Travel <span>(2)</span></a></li>
+				  @include('layouts.categorieslist')
 	              </ul>
 	            </div>
 	          </div>
