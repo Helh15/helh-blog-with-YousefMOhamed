@@ -26,12 +26,14 @@ Route::group(['middleware'=>'guest'],function(){
 
         Route::get('register',[AuthController::class,'register_view'])->name('register');
         Route::post('register',[AuthController::class,'register'])->name('register');
+
 });
 
 Route::group(['middleware'=>'auth'],function(){
         Route::get('home',[AuthController::class,'home'])->name('home');
         Route::get('logout',[AuthController::class,'logout'])->name('logout');
         Route::post('add_new_article',[UserController::class,'add_new_article'])->name('add_new_article');
+        Route::post('add_comment/{id}',[UserController::class,'add_comment'])->name('add_comment');
 
 });
 
@@ -44,5 +46,4 @@ Route::get('contact',[ViewsController::class,'contact'])->name('contact');
 Route::get('readmore/{id}', [ViewsController::class, 'readmore'])->name('readmore');
 Route::get('categoryindex/{id}', [ViewsController::class, 'categoryindex'])->name('categoryindex');
 Route::get('aboutauther/{id}', [ViewsController::class, 'aboutauther'])->name('aboutauther');
-
 

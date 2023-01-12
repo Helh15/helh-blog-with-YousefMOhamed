@@ -64,7 +64,9 @@
 											<p class="meta">
 												<span><i class="icon-heart"></i>3</span>
 												<span><i class="icon-eye"></i>100</span>
-												<span><i class="icon-comment"></i>5</span>
+												<span><i class="icon-comment"></i>
+												{{ App\Models\Comment::where('article_id',$article->id)->count() }}
+											</span>
 											</p>
 										</div>
 										<div class="half">

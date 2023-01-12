@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Article;
+use App\Models\Comment;
 
 class UserController extends Controller
 {
@@ -35,4 +36,25 @@ class UserController extends Controller
         session()->flash('success','The article has been add successfuly!');
         return view('auth.home'); 
     }
+
+    public function add_comment(Request $request, $id)
+    {
+
+        $request->validate([
+            'comment' => 'required',
+        ]);
+
+        Comment::create([
+            'user_id' => Auth::user()->id,
+            'article_id' => $id,
+            'comment' => $request->comment,
+        ]);
+
+
+        session()->flash('success','The Comment has been add successfuly!');
+        
+        return redirect()->back(); 
+
+    }
+    
 }
