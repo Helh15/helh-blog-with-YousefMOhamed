@@ -20,6 +20,12 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+Route::group(['middleware'=>['auth','admin']],function(){
+        Route::post('login',[AuthController::class,'login'])->name('login');
+        Route::get('admin_login',[AuthController::class,'admin_dashboard'])->name('admin_login');
+});
+
 Route::group(['middleware'=>'guest'],function(){
         Route::get('login',[AuthController::class,'index'])->name('login');
         Route::post('login',[AuthController::class,'login'])->name('login');

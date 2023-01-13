@@ -14,6 +14,8 @@ class AuthController extends Controller
 
     }
 
+  
+
     public function login(Request $request)
     { 
         $request->validate([
@@ -21,14 +23,26 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-
+       
         if (\Auth::attempt($request->only('email','password'))) {
-            return redirect('home');
+
+            if (auth()->user()->is_admin){
+               return view('dashboard');
+            }
+            else{ 
+                return redirect('home'); 
+            }
         }
 
         return redirect('login')->withError('الإيميل او كلمة المرور غير صحيحة');
     }
 
+    public function admin_dashboard()
+    {
+
+        return view('dashboard');
+
+    }
 
 
     public function register_view()
