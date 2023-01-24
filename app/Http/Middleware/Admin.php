@@ -20,7 +20,7 @@ class Admin
         if(auth()->user()->is_admin){
             return $next($request); 
         }else{
-            abort(401);
+            return redirect('home');
         }
         
     }

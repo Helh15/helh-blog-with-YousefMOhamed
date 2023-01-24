@@ -67,9 +67,31 @@ class ViewsController extends Controller
     public function aboutauther($id)
     {
     
-    $autherarticles= Article::where('user_id',$id)->get();
+    $autherarticles= Article::where('user_id',$id)->where('state','1')->get();
 
     return view('aboutauther',compact('autherarticles'));
+
+           
+    }
+
+
+    // ADMIN VIEWs //
+
+
+    public function reviewed_articles()
+    {
+
+
+    return view('admin.reviewed_articles');
+
+           
+    }
+
+    public function disliked_articles()
+    {
+
+
+    return view('admin.disliked_articles');
 
            
     }

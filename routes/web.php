@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ViewsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,14 @@ Route::get('/', function () {
 Route::group(['middleware'=>['auth','admin']],function(){
         Route::post('login',[AuthController::class,'login'])->name('login');
         Route::get('admin_login',[AuthController::class,'admin_dashboard'])->name('admin_login');
+        Route::get('reviewed_articles', [ViewsController::class, 'reviewed_articles'])->name('reviewed_articles');
+        Route::get('disliked_articles', [ViewsController::class, 'disliked_articles'])->name('disliked_articles');
+        Route::get('liked_article/{id}', [AdminController::class, 'liked_article'])->name('liked_article');
+        Route::get('disliked/{id}', [AdminController::class, 'disliked'])->name('disliked');
+
+
+        
+
 });
 
 Route::group(['middleware'=>'guest'],function(){

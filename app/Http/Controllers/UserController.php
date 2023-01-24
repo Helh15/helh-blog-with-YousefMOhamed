@@ -34,7 +34,7 @@ class UserController extends Controller
 
 
         session()->flash('success','The article has been add successfuly!');
-        return view('auth.home'); 
+        return redirect()->route('home'); 
     }
 
     public function add_comment(Request $request, $id)

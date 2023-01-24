@@ -16,11 +16,11 @@
 
 				@foreach($article->users()->get() as $auther)
 
-				<a href="{{route('aboutauther',$article->id)}}" class="img"><img src="{{asset('storage/' . $auther->image )}}" onerror="this.onerror=null;this.src='images/default_user_image.png';" class="card-img-top" width="100" style="border-radius: 50%;"></a>
+				<a href="{{route('aboutauther',$auther->id)}}" class="img"><img src="{{asset('storage/' . $auther->image )}}" onerror="this.onerror=null;this.src='images/default_user_image.png';" class="card-img-top" width="100" style="border-radius: 50%;"></a>
 				<div class="ml-3 info">
 					<span>Written by</span>
 					<h3>
-					<a href="{{route('aboutauther',$article->id)}}">{{ $auther->name }}</a>
+					<a href="{{route('aboutauther',$auther->id)}}">{{ $auther->name }}</a>
 				@endforeach
 
 						, <span>{{$article->created_at->format('y-m-d')}}</span>

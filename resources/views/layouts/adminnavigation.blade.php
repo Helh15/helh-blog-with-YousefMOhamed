@@ -6,7 +6,7 @@
 			<h1 id="colorlib-logo"><a href="/">{{ Auth::user()->name }}<span>.</span></a></h1>
 					<li class="colorlib-active"><a href="{{route('home')}}">BLOG Home</a></li>
 					<li><a href="{{route('logout')}}">Logout</a></li>
-					
+	
 					<li><a href="{{route('admin_login')}}">Dashboard</a></li>
 
 
